@@ -32,32 +32,32 @@ const API_URL = "https://backendapi-production-6187.up.railway.app/api/v1/assets
 const products = [
     {
         title: "Aave T-Shirt",
-        price: "GHO 29.99",
+        price: 1.00,
         image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.coingecko.com%2Frewards%2Fimages%2F50%2FArtboard_26_5x4.jpg%3F1607002109&f=1&nofb=1&ipt=614d86fee914aac59f4c65059ea69f98cf0a13685ae0fb30f29d83eaf778acbd&ipo=images",
     },
     {
-        title: "GHO Eco Bag",
-        price: "GHO 2.99",
+        title: "Eco Bag",
+        price: 0.50,
         image: "https://i.postimg.cc/V6bSWChz/acc-tb-001.png",
     },
     {
-        title: "GHO Passport",
-        price: "GHO 2.99",
+        title: "Passport",
+        price: 2.99,
         image: "https://i.postimg.cc/Rh5Ws0rK/GHOPassport.jpg",
     },
     {
-        title: "GHO Hoddie",
-        price: "GHO 2.99",
+        title: "Hoddie",
+        price: 2.99,
         image: "https://i.postimg.cc/XqfpT03h/Hoddie.png",
     },
     {
         title: "YOLO Hoddie",
-        price: "GHO 20.15",
+        price: 2.15,
         image: "https://i.postimg.cc/P5rPFc73/Sweater-YOLO.png",
     },
     {
-        title: "GHO Hoddie Light",
-        price: "GHO 20.99",
+        title: "Hoddie Light",
+        price: 2.99,
         image: "https://i.postimg.cc/L6Sqjh3M/unisex-swt-0009.png",
     },
 ];
@@ -68,10 +68,10 @@ export default function Home() {
     const [isClaiming, setIsClaiming] = useState(false);
     const [claimSuccess, setClaimSuccess] = useState(false);
 
-    const handleClaimProduct = async () => {
+    const handleClaimProduct = async (price: number) => {
         setIsClaiming(true);
         // Simulación de una solicitud de servidor
-        const transaction = await processPayment();
+        const transaction = await processPayment(price);
         console.log("transaction ", transaction)
         setIsClaiming(false);
         setClaimSuccess(true);
@@ -80,11 +80,11 @@ export default function Home() {
         setPaymentConfirmation("");
         setClaimSuccess(false);
     };
-    const processPayment = async () => {
+    const processPayment = async (price: number) => {
         const payload = {
             // Your payload data here
             address: "0xff52083745AEbD841De96336697CbA3334a3A7E9",
-            amount: 1,
+            amount:        price,
             signature: "0xb4e0db4e4c5a99e6b1c9bd9d25ff26ce1df016a28428e3a0429b395f72cde1b97b83828f942f9519c9489412a2e8eb4b671d11af9dd520fb987590598b9747ce1c",
         };
         const data = await fetch(`${API_URL}/process-payment`, {
@@ -173,7 +173,9 @@ export default function Home() {
                 <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4 md:p-6">
                         {products.map((product, index) => (
-                            <Card key={index}>
+                            <Card  key={index}
+                            product={product}
+                            handleClaimProduct={() => handleClaimProduct(product.price)} >
                                 <CardContent className="flex flex-col items-center gap-2 pt-8">
                                     <div className="relative group overflow-hidden rounded-lg">
                                         <img
