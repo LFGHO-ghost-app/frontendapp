@@ -279,9 +279,16 @@ export default function Home() {
                           </>
                         ) : (
                           <DialogFooter>
-                            <Button onClick={() => window.open(`https://sepolia.etherscan.io/tx/${transactionResponse.result}`, '_blank', 'noopener noreferrer')}>
-View transaction
-</Button>
+  <Button onClick={() => {
+    if ('result' in transactionResponse && transactionResponse.result) {
+      window.open(`https://sepolia.etherscan.io/tx/${transactionResponse.result}`, '_blank', 'noopener noreferrer');
+    } else {
+      // Manejar el caso en el que 'result' no existe en transactionResponse
+      console.error("No se encuentra la propiedad 'result' en transactionResponse");
+    }
+  }}>
+    View transaction
+  </Button>
 
                             <Button variant="outline">Close</Button>
                           </DialogFooter>
