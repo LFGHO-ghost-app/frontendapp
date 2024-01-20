@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & { product?: { title: string; price: string; image: string }; handleClaimProduct?: (price: number) => Promise<void> }
+>(({ className, product, handleClaimProduct, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
@@ -14,8 +14,8 @@ const Card = React.forwardRef<
     )}
     {...props}
   />
-))
-Card.displayName = "Card"
+));
+
 
 const CardHeader = React.forwardRef<
   HTMLDivElement,
