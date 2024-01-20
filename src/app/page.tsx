@@ -26,400 +26,135 @@ import { Label } from "@/components/ui/label";
 import { CardContent, Card } from "@/components/ui/card";
 import { HeightIcon } from "@radix-ui/react-icons";
 
+const products = [
+  {
+    title: "Aave T-Shirt",
+    price: "GHO 29.99",
+    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.coingecko.com%2Frewards%2Fimages%2F50%2FArtboard_26_5x4.jpg%3F1607002109&f=1&nofb=1&ipt=614d86fee914aac59f4c65059ea69f98cf0a13685ae0fb30f29d83eaf778acbd&ipo=images"
+  },
+  {
+    title: "GHO Eco Bag",
+    price: "GHO 2.99",
+    image: "https://i.postimg.cc/V6bSWChz/acc-tb-001.png"
+  },
+  {
+    title: "GHO Passport",
+    price: "GHO 2.99",
+    image: "https://i.postimg.cc/Rh5Ws0rK/GHOPassport.jpg"
+  },
+  {
+    title: "GHO Hoddie",
+    price: "GHO 2.99",
+    image: "https://i.postimg.cc/XqfpT03h/Hoddie.png"
+  },
+  {
+    title: "YOLO Hoddie",
+    price: "GHO 20.15",
+    image: "https://i.postimg.cc/P5rPFc73/Sweater-YOLO.png"
+  },
+  {
+    title: "GHO Hoddie Light",
+    price: "GHO 20.99",
+    image: "https://i.postimg.cc/L6Sqjh3M/unisex-swt-0009.png"
+  }
+];
+
 export default function Home() {
   return (<>
     <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
       <header className="flex h-14 items-center gap-4 border-b bg-white py-12 px-6 dark:bg-gray-800/40 w-full justify-between	">
         <Link className="flex items-center gap-2 font-semibold" href="#">
-          <img className="photo" src={"logo.png"} style={{height:50, width:50}} />
+          <img className="photo" src={"logo.png"} style={{ height: 50, width: 50 }} />
           <span className="">Boo</span>
         </Link>
 
-        <form className="w-2/3 md:w-1/4">   
-    <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-    <div className="relative">
-        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-            </svg>
-        </div>
-        <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required/>
-        <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-gray-900 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-    </div>
-</form>
-    <div>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
+        <form className="w-2/3 md:w-1/4">
+          <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+          <div className="relative">
+            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+              </svg>
+            </div>
+            <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-gray-900 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+          </div>
+        </form>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
       </header>
 
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-        
-        
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4 md:p-6">
-          <Card>
-            <CardContent className="flex flex-col items-center gap-2 pt-8">
-              <div className="relative group overflow-hidden rounded-lg">
-                <img
-                  alt=""
-                  className="object-cover w-full h-60 rounded"
-                  height={400}
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.coingecko.com%2Frewards%2Fimages%2F50%2FArtboard_26_5x4.jpg%3F1607002109&f=1&nofb=1&ipt=614d86fee914aac59f4c65059ea69f98cf0a13685ae0fb30f29d83eaf778acbd&ipo=images"
-                  style={{
-                    aspectRatio: "400/300",
-                    objectFit: "cover",
-                  }}
-                  width={500}
-                />
-                <div className="bg-white p-4 dark:bg-gray-950">
-                  <h2 className="font-semibold text-lg md:text-xl">
-                    Aave T-Shirt
-                  </h2>
-    
-                  <h4 className="font-semibold text-base md:text-lg">
-                    GHO 29.99
-                  </h4>
-                </div>
-              </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button>Buy Now</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Payment Confirmation</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <form className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="wallet">Wallet Address</Label>
-                        <Input
-                          id="wallet"
-                          placeholder="Enter your wallet address"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="payment-confirmation">
-                          Payment Confirmation
-                        </Label>
-                        <Input
-                          id="payment-confirmation"
-                          placeholder="Enter payment confirmation details"
-                        />
-                      </div>
-                    </form>
+
+          {products.map((product, index) => (
+            <Card key={index}>
+              <CardContent className="flex flex-col items-center gap-2 pt-8">
+                <div className="relative group overflow-hidden rounded-lg">
+                  <img
+                    alt=""
+                    className="object-cover w-full h-60 rounded"
+                    height={400}
+                    src={product.image}
+                    style={{
+                      aspectRatio: "400/300",
+                      objectFit: "cover",
+                    }}
+                    width={500}
+                  />
+                  <div className="bg-white p-4 dark:bg-gray-950">
+                    <h2 className="font-semibold text-lg md:text-xl">
+                      {product.title}
+                    </h2>
+                    <h4 className="font-semibold text-base md:text-lg">
+                      {product.price}
+                    </h4>
                   </div>
-                  <DialogFooter>
-                    <Button variant="outline">Cancel</Button>
-                    <Button>Claim Product</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="flex flex-col items-center gap-2 pt-8">
-              <div className="relative group overflow-hidden rounded-lg">
-                <img
-                  alt=""
-                  className="object-cover w-full h-60 rounded"
-                  height={400}
-                  src="https://i.postimg.cc/V6bSWChz/acc-tb-001.png"
-                  style={{
-                    aspectRatio: "400/300",
-                    objectFit: "cover",
-                  }}
-                  width={500}
-                />
-                <div className="bg-white p-4 dark:bg-gray-950">
-                  <h2 className="font-semibold text-lg md:text-xl">
-                    GHO Eco Bag 
-                  </h2>
-    
-                  <h4 className="font-semibold text-base md:text-lg">
-                    GHO 2.99
-                  </h4>
                 </div>
-              </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button>Buy Now</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Payment Confirmation</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <form className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="wallet">Wallet Address</Label>
-                        <Input
-                          id="wallet"
-                          placeholder="Enter your wallet address"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="payment-confirmation">
-                          Payment Confirmation
-                        </Label>
-                        <Input
-                          id="payment-confirmation"
-                          placeholder="Enter payment confirmation details"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <DialogFooter>
-                    <Button variant="outline">Cancel</Button>
-                    <Button>Claim Product</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="flex flex-col items-center gap-2 pt-8">
-              <div className="relative group overflow-hidden rounded-lg">
-                <img
-                  alt=""
-                  className="object-cover w-full h-60 rounded"
-                  height={400}
-                  src="https://i.postimg.cc/Rh5Ws0rK/GHOPassport.jpg                  "
-                  style={{
-                    aspectRatio: "400/300",
-                    objectFit: "cover",
-                  }}
-                  width={500}
-                />
-                <div className="bg-white p-4 dark:bg-gray-950">
-                  <h2 className="font-semibold text-lg md:text-xl">
-                    GHO Passport
-                  </h2>
-    
-                  <h4 className="font-semibold text-base md:text-lg">
-                    GHO 2.99
-                  </h4>
-                </div>
-              </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button>Buy Now</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Payment Confirmation</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <form className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="wallet">Wallet Address</Label>
-                        <Input
-                          id="wallet"
-                          placeholder="Enter your wallet address"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="payment-confirmation">
-                          Payment Confirmation
-                        </Label>
-                        <Input
-                          id="payment-confirmation"
-                          placeholder="Enter payment confirmation details"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <DialogFooter>
-                    <Button variant="outline">Cancel</Button>
-                    <Button>Claim Product</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="flex flex-col items-center gap-2 pt-8">
-              <div className="relative group overflow-hidden rounded-lg">
-                <img
-                  alt=""
-                  className="object-cover w-full h-60 rounded"
-                  height={400}
-                  src="https://i.postimg.cc/XqfpT03h/Hoddie.png                  "
-                  style={{
-                    aspectRatio: "400/300",
-                    objectFit: "cover",
-                  }}
-                  width={500}
-                />
-                <div className="bg-white p-4 dark:bg-gray-950">
-                  <h2 className="font-semibold text-lg md:text-xl">
-                    GHO Hoddie
-                  </h2>
-    
-                  <h4 className="font-semibold text-base md:text-lg">
-                    GHO 2.99
-                  </h4>
-                </div>
-              </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button>Buy Now</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Payment Confirmation</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <form className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="wallet">Wallet Address</Label>
-                        <Input
-                          id="wallet"
-                          placeholder="Enter your wallet address"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="payment-confirmation">
-                          Payment Confirmation
-                        </Label>
-                        <Input
-                          id="payment-confirmation"
-                          placeholder="Enter payment confirmation details"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <DialogFooter>
-                    <Button variant="outline">Cancel</Button>
-                    <Button>Claim Product</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="flex flex-col items-center gap-2 pt-8">
-              <div className="relative group overflow-hidden rounded-lg">
-                <img
-                  alt=""
-                  className="object-cover w-full h-60 rounded"
-                  height={400}
-                  src="https://i.postimg.cc/P5rPFc73/Sweater-YOLO.png                  "
-                  style={{
-                    aspectRatio: "400/300",
-                    objectFit: "cover",
-                  }}
-                  width={500}
-                />
-                <div className="bg-white p-4 dark:bg-gray-950">
-                  <h2 className="font-semibold text-lg md:text-xl">
-                    YOLO Hoddie
-                  </h2>
-    
-                  <h4 className="font-semibold text-base md:text-lg">
-                    GHO 20.15
-                  </h4>
-                </div>
-              </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button>Buy Now</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Payment Confirmation</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <form className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="wallet">Wallet Address</Label>
-                        <Input
-                          id="wallet"
-                          placeholder="Enter your wallet address"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="payment-confirmation">
-                          Payment Confirmation
-                        </Label>
-                        <Input
-                          id="payment-confirmation"
-                          placeholder="Enter payment confirmation details"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <DialogFooter>
-                    <Button variant="outline">Cancel</Button>
-                    <Button>Claim Product</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </CardContent>
-          </Card>  <Card>
-            <CardContent className="flex flex-col items-center gap-2 pt-8">
-              <div className="relative group overflow-hidden rounded-lg">
-                <img
-                  alt=""
-                  className="object-cover w-full h-60 rounded"
-                  height={400}
-                  src="https://i.postimg.cc/L6Sqjh3M/unisex-swt-0009.png
-                  "
-                  style={{
-                    aspectRatio: "400/300",
-                    objectFit: "cover",
-                  }}
-                  width={500}
-                />
-                <div className="bg-white p-4 dark:bg-gray-950">
-                  <h2 className="font-semibold text-lg md:text-xl">
-                    GHO Hoddie Light
-                  </h2>
-    
-                  <h4 className="font-semibold text-base md:text-lg">
-                    GHO 20.99
-                  </h4>
-                </div>
-              </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button>Buy Now</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Payment Confirmation</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <form className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="wallet">Wallet Address</Label>
-                        <Input
-                          id="wallet"
-                          placeholder="Enter your wallet address"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="payment-confirmation">
-                          Payment Confirmation
-                        </Label>
-                        <Input
-                          id="payment-confirmation"
-                          placeholder="Enter payment confirmation details"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <DialogFooter>
-                    <Button variant="outline">Cancel</Button>
-                    <Button>Claim Product</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </CardContent>
-          </Card>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button>Buy Now</Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Payment Confirmation</DialogTitle>
+                    </DialogHeader>
+                    <div>
+                      <form className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="wallet">Wallet Address</Label>
+                          <Input
+                            id="wallet"
+                            placeholder="Enter your wallet address"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="payment-confirmation">
+                            Payment Confirmation
+                          </Label>
+                          <Input
+                            id="payment-confirmation"
+                            placeholder="Enter payment confirmation details"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                    <DialogFooter>
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Claim Product</Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
       </main>
     </div>
-    </>
+  </>
   );
 }
 
