@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/dialog";
 import { SelectItem, SelectContent, Select } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { CardContent, Card } from "@/components/ui/card";
+import { CardContent, Card } from "@/components/ui/Card";
 import { HeightIcon } from "@radix-ui/react-icons";
 
 const API_URL =
