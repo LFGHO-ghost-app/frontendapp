@@ -3,7 +3,7 @@
  * @see https://v0.dev/t/nWUIWyPhM93
  */
 "use client";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -33,33 +33,33 @@ const API_URL =
 const products = [
   {
     title: "Aave T-Shirt",
-    price: 1.0,
+    price: 4.0,
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.coingecko.com%2Frewards%2Fimages%2F50%2FArtboard_26_5x4.jpg%3F1607002109&f=1&nofb=1&ipt=614d86fee914aac59f4c65059ea69f98cf0a13685ae0fb30f29d83eaf778acbd&ipo=images",
   },
   {
     title: "Eco Bag",
-    price: 0.5,
+    price: 1.00,
     image: "https://i.postimg.cc/V6bSWChz/acc-tb-001.png",
   },
   {
     title: "Passport",
-    price: 2.99,
+    price: 1.00,
     image: "https://i.postimg.cc/Rh5Ws0rK/GHOPassport.jpg",
   },
   {
     title: "Hoddie",
-    price: 2.99,
+    price: 1.00,
     image: "https://i.postimg.cc/XqfpT03h/Hoddie.png",
   },
   {
     title: "YOLO Hoddie",
-    price: 2.15,
+    price: 1.00,
     image: "https://i.postimg.cc/P5rPFc73/Sweater-YOLO.png",
   },
   {
     title: "Hoddie Light",
-    price: 2.99,
+    price: 1.00,
     image: "https://i.postimg.cc/L6Sqjh3M/unisex-swt-0009.png",
   },
 ];
@@ -69,18 +69,20 @@ export default function Home() {
   const [paymentConfirmation, setPaymentConfirmation] = useState("");
   const [isClaiming, setIsClaiming] = useState(false);
   const [claimSuccess, setClaimSuccess] = useState(false);
+  const [transactionResponse, setTransactionResponse] = useState({})
 
   const handleClaimProduct = async (price: number) => {
     setIsClaiming(true);
     // Simulación de una solicitud de servidor
+    console.log(claimSuccess)
     const transaction = await processPayment(price);
     console.log("transaction ", transaction);
+    console.log("transaccion ", transaction.result);
+    setTransactionResponse(transaction)
     setIsClaiming(false);
-    setClaimSuccess(true);
+    setClaimSuccess(transaction.success);
+    console.log(claimSuccess)
     // Restablecer los valores después de 5 segundos
-    setWallet("");
-    setPaymentConfirmation("");
-    setClaimSuccess(false);
   };
   const processPayment = async (price: number) => {
     const payload = {
@@ -106,12 +108,7 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
         <header className="flex h-14 items-center gap-4 border-b bg-white py-12 px-6 dark:bg-gray-800/40 w-full justify-between	">
           <Link className="flex items-center gap-2 font-semibold" href="#">
-            <img
-              className="photo"
-              src={"logo.png"}
-              style={{ height: 50, width: 50 }}
-            />
-            <span className="">Boo</span>
+            <span className="">Aave Merch</span>
           </Link>
 
           <form className="w-2/3 md:w-1/4">
@@ -129,9 +126,9 @@ export default function Home() {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                   />
                 </svg>
@@ -159,9 +156,9 @@ export default function Home() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="feather feather-shopping-cart"
             >
               <circle cx="9" cy="21" r="1"></circle>
@@ -214,7 +211,7 @@ export default function Home() {
                             </>
                           ) : (
                             <>
-                              <p>Amazing! You got it</p>
+                              <p>I'm yours</p>
                             </>
                           )}
                         </DialogTitle>
@@ -230,16 +227,15 @@ export default function Home() {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                               ></path>
                             </svg>
                             <span className="sr-only">Success</span>
                           </div>
                           <p className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-                            It's done!
-                          </p>
+                          Amazing! You got it                          </p>
                           <p>Remember to confirm your address to ship!</p>
                         </div>
                       ) : (
@@ -283,7 +279,11 @@ export default function Home() {
                           </>
                         ) : (
                           <DialogFooter>
-                            <Button variant="outline">Continue</Button>
+                            <Button onClick={() => window.open(`https://sepolia.etherscan.io/tx/${transactionResponse.result}`, '_blank', 'noopener noreferrer')}>
+View transaction
+</Button>
+
+                            <Button variant="outline">Close</Button>
                           </DialogFooter>
                         )}
                       </DialogFooter>
