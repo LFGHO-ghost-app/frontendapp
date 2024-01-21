@@ -29,7 +29,7 @@
    <br />
     <a href="https://github.com/LFGHO-ghost-app/frontendapp"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/LFGHO-ghost-app/frontendapp">View Demo</a>
+    <a href="https://youtu.be/5nsgcZWltQU">View Demo</a>
     ·
     <a href="https://github.com/LFGHO-ghost-app/frontendapp">Report Bug</a>
     ·
@@ -64,6 +64,12 @@ Boo eliminates the need to connect your wallet, ensuring your private keys remai
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+# Demo
+
+[![Demo Video](https://img.youtube.com/vi/5nsgcZWltQU/0.jpg)](https://www.youtube.com/watch?v=5nsgcZWltQU)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 # How it Works
 
 Boo puts you in control of your web3 interactions, providing a comprehensive solution for seamless, cost-free, and secure transactions.
@@ -84,6 +90,7 @@ Boo puts you in control of your web3 interactions, providing a comprehensive sol
 
  
 Your journey with Boo ensures a hassle-free and secure web3 transaction experience.
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -113,6 +120,7 @@ The Boo project is composed of four individual repositories, each playing a cruc
 ## Purpose of Smart Wallet and Marketplace Integration:
 
 The integration of Boo's smart wallet and the decentralized marketplace serves as a proof of concept, showcasing the synergy between a secure, gasless payment system and a user-friendly marketplace. This integration allows us to test and refine the Boo concept, demonstrating its effectiveness in providing a seamless, cost-free, and secure web3 transaction experience.
+
 
 
 # Boo Team
