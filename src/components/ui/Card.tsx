@@ -1,10 +1,10 @@
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { product?: { title: string; price: string; image: string }; handleClaimProduct?: (price: number) => Promise<void> }
+  React.HTMLAttributes<HTMLDivElement> & { product?: { title: string; price: number; image: string }; handleClaimProduct?: (price: number) => Promise<void> }
 >(({ className, product, handleClaimProduct, ...props }, ref) => (
   <div
     ref={ref}
@@ -15,6 +15,7 @@ const Card = React.forwardRef<
     {...props}
   />
 ));
+Card.displayName = "Card";
 
 
 const CardHeader = React.forwardRef<

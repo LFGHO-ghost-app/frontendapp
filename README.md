@@ -129,7 +129,7 @@ The integration of Boo's smart wallet and the decentralized marketplace serves a
 Sebastian Guaqueta- [@scguaquetam](https://twitter.com/scguaquetam)
 Full Stack and Blockchain Developer
 <br />
-Angela Ocando - [@ocandocrypto](https://twitter.com/ocandocrypto) 
+Angela O - [@ocandocrypto](https://twitter.com/ocandocrypto) 
 Product Manager
 <br />
 Gitmel Gutiérrez- [@whynotgit](https://twitter.com/whynotgit) 
