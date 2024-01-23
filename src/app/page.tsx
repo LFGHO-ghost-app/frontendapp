@@ -39,27 +39,27 @@ const products = [
   },
   {
     title: "Eco Bag",
-    price: 1.00,
+    price: 1.0,
     image: "https://i.postimg.cc/V6bSWChz/acc-tb-001.png",
   },
   {
     title: "Passport",
-    price: 1.00,
+    price: 1.0,
     image: "https://i.postimg.cc/Rh5Ws0rK/GHOPassport.jpg",
   },
   {
     title: "Hoddie",
-    price: 1.00,
+    price: 1.0,
     image: "https://i.postimg.cc/XqfpT03h/Hoddie.png",
   },
   {
     title: "YOLO Hoddie",
-    price: 1.00,
+    price: 1.0,
     image: "https://i.postimg.cc/P5rPFc73/Sweater-YOLO.png",
   },
   {
     title: "Hoddie Light",
-    price: 1.00,
+    price: 1.0,
     image: "https://i.postimg.cc/L6Sqjh3M/unisex-swt-0009.png",
   },
 ];
@@ -69,25 +69,25 @@ export default function Home() {
   const [paymentConfirmation, setPaymentConfirmation] = useState("");
   const [isClaiming, setIsClaiming] = useState(false);
   const [claimSuccess, setClaimSuccess] = useState(false);
-  const [transactionResponse, setTransactionResponse] = useState({})
+  const [transactionResponse, setTransactionResponse] = useState({});
 
   const handleClaimProduct = async (price: number) => {
     setIsClaiming(true);
     // Simulación de una solicitud de servidor
-    console.log(claimSuccess)
+    console.log(claimSuccess);
     const transaction = await processPayment(price);
     console.log("transaction ", transaction);
     console.log("transaccion ", transaction.result);
-    setTransactionResponse(transaction)
+    setTransactionResponse(transaction);
     setIsClaiming(false);
     setClaimSuccess(transaction.success);
-    console.log(claimSuccess)
+    console.log(claimSuccess);
     // Restablecer los valores después de 5 segundos
   };
   const processPayment = async (price: number) => {
     const payload = {
       // Your payload data here
-      address: "0xff52083745AEbD841De96336697CbA3334a3A7E9",
+      address: wallet,
       amount: price,
       signature:
         "0xb4e0db4e4c5a99e6b1c9bd9d25ff26ce1df016a28428e3a0429b395f72cde1b97b83828f942f9519c9489412a2e8eb4b671d11af9dd520fb987590598b9747ce1c",
@@ -99,7 +99,7 @@ export default function Home() {
       },
       body: JSON.stringify(payload),
     });
-    const _data = await data.json();    
+    const _data = await data.json();
     return _data;
   };
 
@@ -235,7 +235,8 @@ export default function Home() {
                             <span className="sr-only">Success</span>
                           </div>
                           <p className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-                          Amazing! You got it                          </p>
+                            Amazing! You got it{" "}
+                          </p>
                           <p>Remember to confirm your address to ship!</p>
                         </div>
                       ) : (
@@ -279,16 +280,27 @@ export default function Home() {
                           </>
                         ) : (
                           <DialogFooter>
-  <Button onClick={() => {
-    if ('result' in transactionResponse && transactionResponse.result) {
-      window.open(`https://sepolia.etherscan.io/tx/${transactionResponse.result}`, '_blank', 'noopener noreferrer');
-    } else {
-      // Manejar el caso en el que 'result' no existe en transactionResponse
-      console.error("No se encuentra la propiedad 'result' en transactionResponse");
-    }
-  }}>
-    View transaction
-  </Button>
+                            <Button
+                              onClick={() => {
+                                if (
+                                  "result" in transactionResponse &&
+                                  transactionResponse.result
+                                ) {
+                                  window.open(
+                                    `https://sepolia.etherscan.io/tx/${transactionResponse.result}`,
+                                    "_blank",
+                                    "noopener noreferrer"
+                                  );
+                                } else {
+                                  // Manejar el caso en el que 'result' no existe en transactionResponse
+                                  console.error(
+                                    "No se encuentra la propiedad 'result' en transactionResponse"
+                                  );
+                                }
+                              }}
+                            >
+                              View transaction
+                            </Button>
 
                             <Button variant="outline">Close</Button>
                           </DialogFooter>
