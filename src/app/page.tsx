@@ -87,7 +87,7 @@ export default function Home() {
   const processPayment = async (price: number) => {
     const payload = {
       // Your payload data here
-      address: wallet,
+      address: "0xff52083745AEbD841De96336697CbA3334a3A7E9",
       amount: price,
       signature:
         "0xb4e0db4e4c5a99e6b1c9bd9d25ff26ce1df016a28428e3a0429b395f72cde1b97b83828f942f9519c9489412a2e8eb4b671d11af9dd520fb987590598b9747ce1c",
